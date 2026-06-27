@@ -1,6 +1,8 @@
 # Meeting Recorder
 
-macOS menu bar app that records meetings and generates transcripts with speaker identification. Runs fully locally — no cloud, no API costs.
+A macOS menu bar app that records meetings and generates speaker-labeled transcripts — **100% on-device**. No accounts, no cloud upload, no per-minute fees. A private alternative to Otter/Fireflies-style tools for anyone who'd rather their meeting audio never leave their Mac.
+
+Click the menu bar icon to start; get a `.wav` + speaker-tagged `.txt` when you stop.
 
 ## How it works
 
@@ -74,3 +76,13 @@ Transcript saved alongside as `.txt`:
 ```
 
 Speaker labels are `SPEAKER_00`, `SPEAKER_01`, etc. — label them manually after.
+
+## Limitations
+
+This is a working personal project — a few rough edges to be aware of:
+
+- **Manual device setup** — the multi-output and aggregate audio devices must be created by hand in Audio MIDI Setup (step 2); programmatic creation isn't reliable yet.
+- **No auto output-switching** — recording works, but the app doesn't yet auto-switch your system output device, so set it manually if needed.
+- **Console-only errors** — errors print to the console rather than showing a UI alert.
+- **Speaker diarization is heuristic** — uses MFCC + agglomerative clustering (no heavy ML model), so speaker separation is approximate, not perfect.
+- **Apple Silicon only** — relies on MLX for on-device Whisper.
