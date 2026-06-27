@@ -1,0 +1,8 @@
+rumps
+mlx-whisper
+pyobjc-framework-CoreAudio
+pyobjc-framework-Cocoa
+sounddevice
+soundfile
+numpy
+scikit-learn
